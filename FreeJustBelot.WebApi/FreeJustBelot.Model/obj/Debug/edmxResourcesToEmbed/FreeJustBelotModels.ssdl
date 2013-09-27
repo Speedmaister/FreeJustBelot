@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db9ee7383ba49a4ee1ae0ea246013e872aModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="db9ee7383ba49a4ee1ae0ea246013e872aModelStoreContainer">
+    <EntitySet Name="Users" EntityType="db9ee7383ba49a4ee1ae0ea246013e872aModel.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nickname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AuthCode" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="SessionKey" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>

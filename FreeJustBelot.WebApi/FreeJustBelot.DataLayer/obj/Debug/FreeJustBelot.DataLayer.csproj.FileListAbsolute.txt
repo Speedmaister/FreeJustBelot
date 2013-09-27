@@ -1,0 +1,10 @@
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\FreeJustBelot.DataLayer.dll.config
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\FreeJustBelot.DataLayer.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\FreeJustBelot.DataLayer.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\FreeJustBelot.Model.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\FreeJustBelot.Model.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\obj\Debug\FreeJustBelot.DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\obj\Debug\FreeJustBelot.DataLayer.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.DataLayer\obj\Debug\FreeJustBelot.DataLayer.pdb

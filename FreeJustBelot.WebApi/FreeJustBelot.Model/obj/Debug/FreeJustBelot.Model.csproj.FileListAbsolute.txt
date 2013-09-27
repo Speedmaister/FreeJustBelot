@@ -1,0 +1,8 @@
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\bin\Debug\FreeJustBelot.Model.dll.config
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\bin\Debug\FreeJustBelot.Model.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\bin\Debug\FreeJustBelot.Model.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\bin\Debug\EntityFramework.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\bin\Debug\EntityFramework.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\obj\Debug\FreeJustBelot.Model.csprojResolveAssemblyReference.cache
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\obj\Debug\FreeJustBelot.Model.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\FreeJustBelot.Model\obj\Debug\FreeJustBelot.Model.pdb

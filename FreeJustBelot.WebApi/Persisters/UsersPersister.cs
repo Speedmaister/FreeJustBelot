@@ -16,7 +16,7 @@ namespace FreeJustBelot.WebApi.Persisters
         private const int NameMaxLength = 30;
         private const int NameMinLength = 6;
         private const int SessionKeyLength = 50;
-        private const int AuthCodeLength = 40;
+        private const int AuthCodeLength = 34;
 
         private static Random rand = new Random();
 

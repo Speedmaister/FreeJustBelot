@@ -53,7 +53,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
                 return Request.CreateResponse(HttpStatusCode.Created, new
                 {
-                    displayName = user.Nickname,
+                    nickname = user.Nickname,
                     sessionKey = user.SessionKey
                 });
             });
@@ -81,7 +81,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
                 return Request.CreateResponse(HttpStatusCode.OK, new
                 {
-                    displayName = user.Nickname,
+                    nickname = user.Nickname,
                     sessionKey = user.SessionKey
                 });
             });

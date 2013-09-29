@@ -1,4 +1,4 @@
-﻿using FreeJustBelot.Model;
+﻿using FreeJustBelot.Models;
 using System;
 namespace FreeJustBelot.DataLayer
 {

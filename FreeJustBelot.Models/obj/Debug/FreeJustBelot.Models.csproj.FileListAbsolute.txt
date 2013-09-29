@@ -1,0 +1,4 @@
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.Models\bin\Debug\FreeJustBelot.Models.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.Models\bin\Debug\FreeJustBelot.Models.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.Models\obj\Debug\FreeJustBelot.Models.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.Models\obj\Debug\FreeJustBelot.Models.pdb

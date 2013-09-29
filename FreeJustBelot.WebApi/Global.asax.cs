@@ -16,7 +16,8 @@ namespace FreeJustBelot.WebApi
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            AreaRegistration.RegisterAllAreas(); 
+            RouteTable.Routes.MapHubs();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

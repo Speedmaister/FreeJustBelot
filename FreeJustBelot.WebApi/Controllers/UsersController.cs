@@ -1,5 +1,6 @@
-﻿using FreeJustBelot.DataLayer;
-using FreeJustBelot.Model;
+﻿using FreeJustBelot.Data;
+using FreeJustBelot.DataLayer;
+using FreeJustBelot.Models;
 using FreeJustBelot.WebApi.Models;
 using FreeJustBelot.WebApi.Persisters;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace FreeJustBelot.WebApi.Controllers
 {
@@ -29,7 +30,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
         [HttpPost]
         [ActionName("register")]
-        public HttpResponseMessage RegisterUser(UserModel model)
+        public HttpResponseMessage Register(UserModel model)
         {
             var response = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -63,7 +64,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
         [HttpPost]
         [ActionName("login")]
-        public HttpResponseMessage LoginUser(UserModel model)
+        public HttpResponseMessage Login(UserModel model)
         {
             var response = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -91,7 +92,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
         [HttpPut]
         [ActionName("logout")]
-        public HttpResponseMessage LogoutUser(LogoutModel model)
+        public HttpResponseMessage Logout(LogoutModel model)
         {
             var response = this.PerformOperationAndHandleExceptions(() =>
             {

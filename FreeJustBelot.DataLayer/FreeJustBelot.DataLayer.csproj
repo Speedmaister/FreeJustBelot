@@ -53,9 +53,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FreeJustBelot.Model\FreeJustBelot.Model.csproj">
-      <Project>{25a4f7c6-3929-4e87-8ec2-bd905472a6a6}</Project>
-      <Name>FreeJustBelot.Model</Name>
+    <ProjectReference Include="..\FreeJustBelot.Data\FreeJustBelot.Data.csproj">
+      <Project>{64fc7bda-5c05-44ba-8b36-7d85cfed8855}</Project>
+      <Name>FreeJustBelot.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FreeJustBelot.Models\FreeJustBelot.Models.csproj">
+      <Project>{92d688a9-576f-4751-8bfc-ffff45bab379}</Project>
+      <Name>FreeJustBelot.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,7 +16,7 @@ namespace FreeJustBelot.WebApi.Persisters
         private const int NameMaxLength = 30;
         private const int NameMinLength = 6;
         private const int SessionKeyLength = 50;
-        private const int AuthCodeLength = 34;
+        private const int AuthCodeLength = 12;
 
         private static Random rand = new Random();
 
@@ -67,11 +67,6 @@ namespace FreeJustBelot.WebApi.Persisters
                 throw new ArgumentNullException("Null authcode.");
             }
 
-            if (model.AuthCode.Length != AuthCodeLength)
-            {
-                throw new ArgumentOutOfRangeException("Auth code has to be exactly 40 characters.");
-            }
-
             if (model.Nickname == null)
             {
                 throw new ArgumentNullException("Null nickname.");
@@ -113,11 +108,6 @@ namespace FreeJustBelot.WebApi.Persisters
             if (model.AuthCode == null)
             {
                 throw new ArgumentNullException("Null authcode.");
-            }
-
-            if (model.AuthCode.Length != AuthCodeLength)
-            {
-                throw new ArgumentOutOfRangeException("Auth code has to be exactly 40 characters.");
             }
 
             if (model.Username.Any(x => !UsernameLetters.Contains(x)))

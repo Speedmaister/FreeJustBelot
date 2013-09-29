@@ -77,7 +77,6 @@ C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustB
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Antlr3.Runtime.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\EntityFramework.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.DataLayer.dll
-C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Model.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.Data.Edm.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.Data.OData.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.Web.Infrastructure.dll
@@ -99,7 +98,6 @@ C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\System.We
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\System.Web.WebPages.Razor.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\WebGrease.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.DataLayer.pdb
-C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Model.pdb
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\EntityFramework.xml
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Newtonsoft.Json.xml
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\System.Net.Http.Formatting.xml
@@ -146,3 +144,16 @@ C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\zh-Hant\S
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\obj\Debug\FreeJustBelot.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\obj\Debug\FreeJustBelot.WebApi.dll
 C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\obj\Debug\FreeJustBelot.WebApi.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.Owin.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Owin.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.Owin.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Data.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Models.dll
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Data.pdb
+C:\Users\Rado_\Documents\GitHub\FreeJustBelot\FreeJustBelot.WebApi\bin\FreeJustBelot.Models.pdb

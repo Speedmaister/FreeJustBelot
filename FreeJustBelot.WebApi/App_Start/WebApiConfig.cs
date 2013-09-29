@@ -9,17 +9,17 @@ namespace FreeJustBelot.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute(
-                name: "Users",
-                routeTemplate: "api/users/register",
-                defaults: new { controller = "users",action="registeruser" }
-                );
+            //config.Routes.MapHttpRoute(
+            //   name: "Games",
+            //   routeTemplate: "api/games/{action}",
+            //   defaults: new { controller = "games" }
+            //   );
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                name: "DefaultUri",
+                routeTemplate: "api/{controller}/{action}",
+                defaults: new { }
+                );
 
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.

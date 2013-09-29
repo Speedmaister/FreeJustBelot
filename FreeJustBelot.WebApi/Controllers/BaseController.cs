@@ -1,5 +1,5 @@
 ﻿using FreeJustBelot.DataLayer;
-using FreeJustBelot.Model;
+using FreeJustBelot.Models;
 using FreeJustBelot.WebApi.Persisters;
 using System;
 using System.Collections.Generic;

@@ -21,7 +21,7 @@ namespace FreeJustBelot.WebApi.Hubs
         {
             Groups.Add(Context.ConnectionId, gameName);
             var room = GetRoomModel(gameName);
-            Clients.OthersInGroup(gameName).joinGame(room);
+            Clients.Group(gameName).joinGame(room);
         }
 
         private static RoomModel GetRoomModel(string gameName)

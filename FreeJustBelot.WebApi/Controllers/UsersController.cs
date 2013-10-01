@@ -5,6 +5,7 @@ using FreeJustBelot.WebApi.Models;
 using FreeJustBelot.WebApi.Persisters;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -19,6 +20,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
         public UsersController()
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FreeJustBelotEntities, FreeJustBelot.Data.Migrations.Configuration>());
             var dbContext = new FreeJustBelotEntities();
             this.repository = new UsersRepository(dbContext);
         }

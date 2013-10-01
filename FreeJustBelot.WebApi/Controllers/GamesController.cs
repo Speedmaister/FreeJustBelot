@@ -17,14 +17,12 @@ namespace FreeJustBelot.WebApi.Controllers
     public class GamesController : BaseController
     {
         private IRepository<Game> gamesRepository;
-        private IRepository<GamesRoom> roomsRepository;
         private IRepository<User> usersRepository;
 
         public GamesController()
         {
             var dbContext = new FreeJustBelotEntities();
             this.gamesRepository = new Repository<Game>(dbContext);
-            this.roomsRepository = new Repository<GamesRoom>(dbContext);
             this.usersRepository = new Repository<User>(dbContext);
         }
 
@@ -67,15 +65,12 @@ namespace FreeJustBelot.WebApi.Controllers
             var game = this.gamesRepository.All()
                 .FirstOrDefault(x => x.Name == gameName);
 
-            var room = this.roomsRepository.All()
-                .FirstOrDefault(x => x.GameId == game.Id);
-
-            var roomModel = AddPlayersToRoomModeList(room);
+            var roomModel = AddPlayersToRoomModeList(game);
 
             return roomModel;
         }
 
-        private RoomModel AddPlayersToRoomModeList(GamesRoom room)
+        private RoomModel AddPlayersToRoomModeList(Game room)
         {
             string user1 = this.usersRepository.Get((int)room.Player1).Nickname;
             string user2 = null;
@@ -116,7 +111,7 @@ namespace FreeJustBelot.WebApi.Controllers
                     User user = this.gamesRepository.GetUserBySessionKey(sessionKey);
 
                     var allGames = this.gamesRepository.All();
-                    var gameCreatedByCurrentUser = allGames.FirstOrDefault(x => x.HostId == user.Id);
+                    var gameCreatedByCurrentUser = allGames.FirstOrDefault(x => x.User.Id == user.Id);
                     if (gameCreatedByCurrentUser != null)
                     {
                         throw new ArgumentException("User already created a game.");
@@ -133,23 +128,14 @@ namespace FreeJustBelot.WebApi.Controllers
                     newGame.User = user;
                     newGame.PlayersWaiting = 1;
                     newGame.Name = model.Name;
-                    if (string.IsNullOrWhiteSpace(model.Password))
+                    newGame.Player1 = user.Id;
+                    if (!string.IsNullOrWhiteSpace(model.Password))
                     {
                         newGame.Password = model.Password;
                     }
-
                     var game = this.gamesRepository.Add(newGame);
 
-                    GamesRoom newRoom = new GamesRoom();
-                    newRoom.GameId = game.Id;
-                    newRoom.Player1 = user.Id;
-
-                    var room = this.roomsRepository.Add(newRoom);
-
-                    JustBelotHub.games.Add(game);
-                    JustBelotHub.rooms.Add(room);
-
-                    return Request.CreateResponse(HttpStatusCode.Created);
+                    return Request.CreateResponse(HttpStatusCode.Created, new { Message = "Created." });
                 });
 
             return response;
@@ -173,23 +159,19 @@ namespace FreeJustBelot.WebApi.Controllers
                         throw new ArgumentNullException("Game does not exist.");
                     }
 
-                    var room = this.roomsRepository.All()
-                        .FirstOrDefault(x => x.GameId == game.Id);
-                    this.SetPlayerAtCurrentPosition(room, user);
-
                     if (game.Password != null && game.Password != model.Password)
                     {
                         throw new ArgumentException("Incorrect password.");
                     }
 
+                    this.gamesRepository.Delete(game);
+
+                    this.SetPlayerAtCurrentPosition(game, user);
                     game.PlayersWaiting++;
+            
+                    this.gamesRepository.Add(game);
 
-                    this.gamesRepository.Update(game.Id, game);
-                    this.roomsRepository.Update(room.Id, room);
-
-                    JustBelotHub.games.FirstOrDefault(x => x.Id == game.Id).PlayersWaiting++;
-
-                    return Request.CreateResponse(HttpStatusCode.OK);
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Joined." });
                 });
 
             return response;
@@ -236,23 +218,19 @@ namespace FreeJustBelot.WebApi.Controllers
             }
         }
 
-        private void SetPlayerAtCurrentPosition(GamesRoom room, User user)
+        private void SetPlayerAtCurrentPosition(Game room, User user)
         {
-            var hubRoom = JustBelotHub.rooms.FirstOrDefault(x => x.Id == room.Id);
             if (room.Player2 == null)
             {
                 room.Player2 = user.Id;
-                hubRoom.Player2 = user.Id;
             }
             else if (room.Player3 == null)
             {
                 room.Player3 = user.Id;
-                hubRoom.Player3 = user.Id;
             }
             else if (room.Player4 == null)
             {
                 room.Player4 = user.Id;
-                hubRoom.Player4 = user.Id;
             }
             else
             {

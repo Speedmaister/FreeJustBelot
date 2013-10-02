@@ -125,7 +125,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
 
                     Game newGame = new Game();
-                    newGame.User = user;
+                    newGame.HostId = user.Id;
                     newGame.PlayersWaiting = 1;
                     newGame.Name = model.Name;
                     newGame.Player1 = user.Id;
@@ -153,7 +153,6 @@ namespace FreeJustBelot.WebApi.Controllers
 
                     var game = this.gamesRepository.All()
                         .FirstOrDefault(x => x.Name == model.GameName && x.User.Nickname == model.Host);
-
                     if (game == null)
                     {
                         throw new ArgumentNullException("Game does not exist.");

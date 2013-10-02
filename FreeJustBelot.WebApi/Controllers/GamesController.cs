@@ -147,7 +147,7 @@ namespace FreeJustBelot.WebApi.Controllers
         {
             var response = this.PerformOperationAndHandleExceptions(() =>
             {
-                if (UsersPersister.ValidateSessionKey(sessionKey))
+                if (!UsersPersister.ValidateSessionKey(sessionKey))
                 {
                     throw new ArgumentException("Invalid format of session key");
                 }

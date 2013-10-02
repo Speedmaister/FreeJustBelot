@@ -17,11 +17,16 @@ namespace FreeJustBelot.WebApi.Hubs
         private static IRepository<Game> gamesRepository = new Repository<Game>(context);
         private static IRepository<User> usersRepository = new Repository<User>(context);
 
-        public void JoinGame(string sessionKey,string gameName)
+        public void JoinRoom(string gameName)
         {
             Groups.Add(Context.ConnectionId, gameName);
             var room = GetRoomModel(gameName);
-            Clients.Group(gameName).joinGame(room);
+            Clients.Group(gameName).JoinRoom(room);
+        }
+
+        public void LeaveRoom(string gameName,string playerName)
+        {
+            Clients.Group(gameName).playerLeftRoom(playerName);
         }
 
         private static RoomModel GetRoomModel(string gameName)

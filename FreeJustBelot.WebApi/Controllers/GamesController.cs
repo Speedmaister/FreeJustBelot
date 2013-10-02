@@ -141,6 +141,88 @@ namespace FreeJustBelot.WebApi.Controllers
             return response;
         }
 
+        [HttpGet]
+        [ActionName("leave")]
+        public HttpResponseMessage Leave(string sessionKey, string gameName)
+        {
+            var response = this.PerformOperationAndHandleExceptions(() =>
+            {
+                if (UsersPersister.ValidateSessionKey(sessionKey))
+                {
+                    throw new ArgumentException("Invalid format of session key");
+                }
+
+                var user = this.gamesRepository.GetUserBySessionKey(sessionKey);
+
+                var game = this.gamesRepository.All().FirstOrDefault(x => x.Name == gameName);
+
+                this.RemoveUserFromGame(user, game);
+
+                return Request.CreateResponse(HttpStatusCode.Created, new { Message = "Left." });
+            });
+
+            return response;
+        }
+
+        private void RemoveUserFromGame(FreeJustBelot.Models.User user, Game game)
+        {
+            if (game.HostId != user.Id)
+            {
+                this.EmptySlot(user, game);
+            }
+            else
+            {
+                var newHostId = this.EmptySlot(user, game, true);
+                game.HostId = newHostId;
+            }
+        }
+
+        private int EmptySlot(FreeJustBelot.Models.User user, Game game,bool needToChangeHost = false)
+        {
+            if (game.Player1 == user.Id)
+            {
+                game.Player1 = null;
+            }else if (game.Player2 == user.Id)
+            {
+                game.Player2 = null;
+            }else if (game.Player3 == user.Id)
+            {
+                game.Player3 = null;
+            }
+            else 
+            {
+                game.Player4 = null;
+            }
+
+            if (needToChangeHost)
+            {
+                int newHostId = this.GetFirstNonEmptySlot(game);
+                return newHostId;
+            }
+
+            return 0;
+        }
+
+        private int GetFirstNonEmptySlot(Game game)
+        {
+            if (game.Player1 != null)
+            {
+                return (int)game.Player1;
+            }
+            else if (game.Player2 != null)
+            {
+                return (int)game.Player2;
+            }
+            else if (game.Player3 != null)
+            {
+                return (int)game.Player3;
+            }
+            else
+            {
+                return (int)game.Player4;
+            }
+        }
+
         [HttpPost]
         [ActionName("join")]
         public HttpResponseMessage Join(string sessionKey, JoinGameModel model)
@@ -167,7 +249,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
                     this.SetPlayerAtCurrentPosition(game, user);
                     game.PlayersWaiting++;
-            
+
                     this.gamesRepository.Add(game);
 
                     return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Joined." });

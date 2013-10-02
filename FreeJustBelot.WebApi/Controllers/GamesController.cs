@@ -313,7 +313,11 @@ namespace FreeJustBelot.WebApi.Controllers
 
         private void SetPlayerAtCurrentPosition(Game room, User user)
         {
-            if (room.Player2 == null)
+            if (room.Player1 == null)
+            {
+                room.Player1 = user.Id;
+            } 
+            else if (room.Player2 == null)
             {
                 room.Player2 = user.Id;
             }

@@ -33,10 +33,15 @@ namespace FreeJustBelot.WebApi.Hubs
         private static RoomModel GetRoomModel(string gameName)
         {
             var room = gamesRepository.All().FirstOrDefault(x => x.Name == gameName);
-            string user1 = usersRepository.Get((int)room.Player1).Nickname;
+            string user1 = null;
             string user2 = null;
             string user3 = null;
             string user4 = null;
+            if (room.Player1 != null)
+            {
+                user1 = usersRepository.Get((int)room.Player1).Nickname;
+            }
+
             if (room.Player2 != null)
             {
                 user2 = usersRepository.Get((int)room.Player2).Nickname;

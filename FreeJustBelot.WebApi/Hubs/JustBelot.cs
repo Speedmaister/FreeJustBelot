@@ -26,6 +26,7 @@ namespace FreeJustBelot.WebApi.Hubs
 
         public void LeaveRoom(string gameName,string playerName)
         {
+            Groups.Remove(Context.ConnectionId, gameName);
             Clients.OthersInGroup(gameName).PlayerLeftRoom(playerName);
         }
 

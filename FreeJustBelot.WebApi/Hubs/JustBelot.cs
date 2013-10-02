@@ -26,7 +26,7 @@ namespace FreeJustBelot.WebApi.Hubs
 
         public void LeaveRoom(string gameName,string playerName)
         {
-            Clients.Group(gameName).PlayerLeftRoom(playerName);
+            Clients.OthersInGroup(gameName).PlayerLeftRoom(playerName);
         }
 
         private static RoomModel GetRoomModel(string gameName)

@@ -156,7 +156,19 @@ namespace FreeJustBelot.WebApi.Controllers
 
                 var game = this.gamesRepository.All().FirstOrDefault(x => x.Name == gameName);
 
-                this.RemoveUserFromGame(user, game);
+                if (game == null)
+                {
+                    throw new ArgumentNullException("Game does not exist.");
+                }
+
+                this.gamesRepository.Delete(game);
+
+                if (game.PlayersWaiting != 1)
+                {
+                    this.RemoveUserFromGame(user, game);
+                    game.PlayersWaiting--;
+                    this.gamesRepository.Add(game);
+                }
 
                 return Request.CreateResponse(HttpStatusCode.Created, new { Message = "Left." });
             });

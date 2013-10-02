@@ -21,12 +21,12 @@ namespace FreeJustBelot.WebApi.Hubs
         {
             Groups.Add(Context.ConnectionId, gameName);
             var room = GetRoomModel(gameName);
-            Clients.Group(gameName).JoinRoom(room);
+            Clients.Group(gameName).PlayerJoinedRoom(room);
         }
 
         public void LeaveRoom(string gameName,string playerName)
         {
-            Clients.Group(gameName).playerLeftRoom(playerName);
+            Clients.Group(gameName).PlayerLeftRoom(playerName);
         }
 
         private static RoomModel GetRoomModel(string gameName)

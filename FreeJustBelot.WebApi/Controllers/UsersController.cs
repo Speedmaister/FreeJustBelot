@@ -20,7 +20,6 @@ namespace FreeJustBelot.WebApi.Controllers
 
         public UsersController()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FreeJustBelotEntities, FreeJustBelot.Data.Migrations.Configuration>());
             var dbContext = new FreeJustBelotEntities();
             this.repository = new UsersRepository(dbContext);
         }

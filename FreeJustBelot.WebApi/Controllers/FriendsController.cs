@@ -51,7 +51,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
         [HttpPost]
         [ActionName("find")]
-        public HttpResponseMessage FindFriend(string sessionKey,FriendModel model)
+        public HttpResponseMessage FindFriend(string sessionKey, FriendModel model)
         {
             var response = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -76,7 +76,7 @@ namespace FreeJustBelot.WebApi.Controllers
 
                 this.friendsRepository.Add(newFriend);
 
-                return Request.CreateResponse(HttpStatusCode.Created, "Found.");
+                return Request.CreateResponse(HttpStatusCode.Created, new { Message = "Found." });
             });
 
             return response;

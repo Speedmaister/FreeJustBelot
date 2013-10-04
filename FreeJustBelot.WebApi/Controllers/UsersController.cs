@@ -17,10 +17,12 @@ namespace FreeJustBelot.WebApi.Controllers
     public class UsersController : BaseController
     {
         private UsersRepository repository;
+        private IRepository<Friend> friendsRepository;
 
         public UsersController()
         {
             var dbContext = new FreeJustBelotEntities();
+            this.friendsRepository = new Repository<Friend>(dbContext);
             this.repository = new UsersRepository(dbContext);
         }
 
@@ -42,8 +44,10 @@ namespace FreeJustBelot.WebApi.Controllers
 
                 var user = this.repository.GetUserBySessionKey(sessionKey);
 
-                var all = this.repository.All().Where(x => x.Id != user.Id).Select(x => x.Nickname);
-
+                var allFriends = this.friendsRepository.All().Where(x => x.UserId == user.Id);
+                var all = this.repository.All()
+                    .Where(x => x.Id != user.Id && !allFriends.Any(y => y.FriendId == x.Id))
+                    .Select(x => x.Nickname);
                 return all;
             });
 

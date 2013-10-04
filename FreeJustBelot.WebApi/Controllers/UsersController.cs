@@ -29,6 +29,27 @@ namespace FreeJustBelot.WebApi.Controllers
             this.repository = repository;
         }
 
+        [HttpGet]
+        [ActionName("all")]
+        public IEnumerable<string> GetAllUsers(string sessionKey)
+        {
+            var response = this.PerformOperationAndHandleExceptions(() =>
+            {
+                if (!UsersPersister.ValidateSessionKey(sessionKey))
+                {
+                    throw new ArgumentException("Invalid format of session key");
+                }
+
+                var user = this.repository.GetUserBySessionKey(sessionKey);
+
+                var all = this.repository.All().Where(x => x.Id != user.Id).Select(x => x.Nickname);
+
+                return all;
+            });
+
+            return response;
+        }
+
         [HttpPost]
         [ActionName("register")]
         public HttpResponseMessage Register(UserModel model)

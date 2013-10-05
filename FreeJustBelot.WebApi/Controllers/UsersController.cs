@@ -67,9 +67,13 @@ namespace FreeJustBelot.WebApi.Controllers
                 {
                     user = new User { Username = model.Username, AuthCode = model.AuthCode, Nickname = model.Nickname };
                 }
-                else
+                else if(user.Nickname==model.Nickname)
                 {
-                    throw new ArgumentException("User with the same username or nickname already exists.");
+                    throw new ArgumentException("User with the same nickname already exists.");
+                }
+                else if (user.Username == model.Username)
+                {
+                    throw new ArgumentException("User with the same username already exists.");
                 }
 
                 repository.Add(user);

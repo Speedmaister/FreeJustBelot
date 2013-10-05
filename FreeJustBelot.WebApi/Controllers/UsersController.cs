@@ -100,10 +100,15 @@ namespace FreeJustBelot.WebApi.Controllers
             {
                 UsersPersister.ValidateUserLoginModel(model);
 
-                var user = repository.Get(model.Username, model.AuthCode);
+                var user = repository.Get(model.Username);
                 if (user == null)
                 {
                     throw new InvalidOperationException("Not e registered user.");
+                }
+
+                if (user.AuthCode != model.AuthCode)
+                {
+                    throw new InvalidOperationException("Invalid password.");
                 }
 
                 user.SessionKey = UsersPersister.GenerateSessionKey(user.Id);

@@ -15,9 +15,9 @@ namespace FreeJustBelot.DataLayer
         {
         }
 
-        public User Get(string username, string authcode)
+        public User Get(string username)
         {
-            var user = this.set.FirstOrDefault(x => x.Username == username && x.AuthCode == authcode);
+            var user = this.set.FirstOrDefault(x => x.Username == username);
             return user;
         }
 
